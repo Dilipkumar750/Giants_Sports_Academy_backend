@@ -147,39 +147,105 @@ const leadership = [
 
 const programs = [
   {
-    customId: 'grassroots',
-    title: 'Grassroots Discovery',
-    icon: '🌱',
-    age: 'Ages 8–14',
-    badge: 'Starter Pathway',
-    badgeColor: '#16a34a',
-    description: 'Foundational athletic skills, physical literacy, and early data talent identification. We expose children to multi-sport disciplines to discover their natural physiological leanings.',
-    features: ['Multi-sport motor skill exposure', 'AI biometric talent screening', 'Core strength & agility basics', 'Rural talent outreach camps'],
-    details: 'This program is tailored to build standard athletic foundations, helping children learn basic physical coordinates while identifying special skill metrics.',
-    featured: false
-  },
-  {
-    customId: 'elite',
-    title: 'Elite Development',
-    icon: '⚡',
-    age: 'Ages 14–20',
-    badge: 'State/National Pathway',
+    customId: 'hockey-development',
+    title: 'Hockey Development',
+    icon: '🏑',
+    age: 'Grassroots · Junior · Competitive · Advanced',
+    badge: 'Flagship Discipline',
     badgeColor: '#dc181b',
-    description: 'Specialized sport-specific training program with competitive exposure. Designed for athletes ready to transition from multiple sports into standard sport specialization.',
-    features: ['Position-specific technical coaching', 'Advanced strength & conditioning', 'State & national tournament entries', 'AI video-based analysis sessions'],
-    details: 'Athletes get scientific physical tracking and dedicated training routines matching the demands of state and national standard meets.',
+    description: 'Structured hockey coaching designed to develop technical skills, tactical understanding, physical abilities, match awareness, and competitive confidence.',
+    details: 'Led under FIH Licensed Coaching expertise, programs are structured progressively from grassroots foundational stick work to advanced national tournament preparation.',
+    features: [
+      'Technical stick handling, ball control & dynamic passing',
+      'Tactical match play, positional awareness & set-piece drills',
+      'Speed, agility & endurance conditioning tailored for field hockey',
+      'Pathways for district, state, and national championship selection'
+    ],
     featured: true
   },
   {
-    customId: 'champions',
-    title: 'Champions Program',
-    icon: '🏅',
-    age: 'Top Performers',
-    badge: 'Olympic Pathway',
-    badgeColor: '#eab308',
-    description: 'Elite training targeted specifically for international competition, national selection, and future Olympic pipelines. Supported by top-tier sports scientists and performance staff.',
-    features: ['International tournament preparation', 'Full sports science & lab support', 'Nutritional tracking & recovery plans', 'Scholarship & university placements'],
-    details: 'This phase operates on full scholarship tracks for identified elite champions. We focus on maximizing fractional athletic performance.',
+    customId: 'air-rifle-shooting',
+    title: 'Air Rifle Shooting',
+    icon: '🎯',
+    age: 'Junior · Youth · Elite Shooters',
+    badge: 'Precision & Focus',
+    badgeColor: '#1565c0',
+    description: 'Professional 10-metre air rifle shooting training focusing on shooting fundamentals, technique, concentration, stability, discipline, competition preparation, and performance development.',
+    details: 'Precision-based instruction emphasizing body alignment, trigger control, breathing rhythm, stability routines, and mental resilience under competitive pressure.',
+    features: [
+      '10-Metre Air Rifle technical fundamentals & stance stability',
+      'Breath control, trigger squeeze & precision sight alignment',
+      'Mental discipline, concentration & match pressure simulation',
+      'National federation competition readiness & performance profiling'
+    ],
+    featured: true
+  },
+  {
+    customId: 'skill-based-sports',
+    title: 'Skill-Based & Combat Sports',
+    icon: '🥋',
+    age: 'All Age Groups & Skill Levels',
+    badge: 'Discipline & Agility',
+    badgeColor: '#ea580c',
+    description: 'Training opportunities that promote physical conditioning, coordination, discipline, confidence, and competitive skills through appropriate combat and skill-based sporting programs.',
+    details: 'Designed to build robust agility, reflex sharpness, self-defense awareness, physical fortitude, and tactical combat intelligence in a controlled environment.',
+    features: [
+      'Reflex speed, balance & neuromuscular coordination',
+      'Combat fitness, explosive power & core strength conditioning',
+      'Tactical sparring & competitive strategy mastery',
+      'Self-discipline, emotional composure & character building'
+    ],
+    featured: false
+  },
+  {
+    customId: 'sports-performance-fitness',
+    title: 'Sports Performance & Fitness',
+    icon: '⚡',
+    age: 'Athletes & Fitness Enthusiasts',
+    badge: 'Athletic Conditioning Engine',
+    badgeColor: '#7c3aed',
+    description: 'Performance-oriented fitness programs designed to elevate baseline motor abilities and athletic power across all sports disciplines.',
+    details: 'Structured protocols focusing on Strength, Speed, Agility, Power, Endurance, Mobility, Flexibility, Coordination, Functional Fitness, and Injury-risk reduction.',
+    features: [
+      'Strength & Power: Progressive resistance and explosive power loading',
+      'Speed & Agility: SAQ (Speed, Agility, Quickness) drill mechanics',
+      'Mobility & Flexibility: Range-of-motion enhancement & dynamic stretching',
+      'Coordination & Functional Fitness: Movement quality & injury-risk reduction'
+    ],
+    featured: true
+  },
+  {
+    customId: 'sports-science-assessment',
+    title: 'Sports Science & Performance Assessment',
+    icon: '🔬',
+    age: 'All Enrolled Athletes',
+    badge: 'Evidence-Based Testing',
+    badgeColor: '#059669',
+    description: 'Athletes are assessed using appropriate fitness and performance tests to understand their current capabilities and monitor development of motor abilities.',
+    details: 'Scientific benchmarking evaluates cardiovascular output, anaerobic threshold, biomechanical symmetry, muscle power, and developmental velocity.',
+    features: [
+      'Standardized motor ability & physiological fitness battery tests',
+      'Biomechanical movement screen & postural alignment checks',
+      'Aerobic/anaerobic capacity & sprint speed benchmarking',
+      'Personalized developmental reports & continuous tracking'
+    ],
+    featured: false
+  },
+  {
+    customId: 'sports-tech-monitoring',
+    title: 'Sports Technology & Performance Monitoring',
+    icon: '💻',
+    age: 'Developing & Elite Athletes',
+    badge: 'Modern Tech & AI Scouting',
+    badgeColor: '#d97706',
+    description: 'Integrating modern sports technology into athlete development, including digital athlete profiling, video analysis, performance monitoring, wearable tech, and AI-supported assessment tools.',
+    details: 'Empowering athletes and coaches with objective telemetry, visual movement analytics, real-time feedback, and automated performance logs.',
+    features: [
+      'Digital athlete profiling & long-term development records',
+      'High-speed video capture & technique movement analysis',
+      'Wearable telemetry & physical workload monitoring',
+      'AI-supported talent assessment tools and predictive benchmarks'
+    ],
     featured: false
   }
 ];

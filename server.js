@@ -38,10 +38,10 @@ const mongoUri = process.env.MONGODB_URI || process.env.mongoDb || 'mongodb://12
 mongoose.connect(mongoUri)
   .then(async () => {
     console.log('MongoDB successfully connected.');
-    
+
     // Seed initial data if database is empty
     await seedDatabase();
-    
+
     // Start listening
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
@@ -93,12 +93,21 @@ async function seedDatabase() {
       console.log(`Seeded ${seedData.leadership.length} board members.`);
     }
 
-    // 4. Seed Programs
-    const programCount = await Program.countDocuments();
-    if (programCount === 0) {
-      console.log('Seeding default programs...');
-      await Program.insertMany(seedData.programs);
-      console.log(`Seeded ${seedData.programs.length} training programs.`);
+    // 4. Seed / Sync Programs (Ensure all 6 official programs are present)
+    const existingPrograms = await Program.find();
+    const hasOldPrograms = existingPrograms.some(p => ['grassroots', 'elite', 'champions'].includes(p.customId));
+    if (existingPrograms.length === 0 || hasOldPrograms || existingPrograms.length < 6) {
+      console.log('Syncing all 6 official training programs to database...');
+      for (const prog of seedData.programs) {
+        await Program.findOneAndUpdate(
+          { customId: prog.customId },
+          { $set: prog },
+          { upsert: true, new: true, setDefaultsOnInsert: true }
+        );
+      }
+      // Remove deprecated placeholder programs if present
+      await Program.deleteMany({ customId: { $in: ['grassroots', 'elite', 'champions'] } });
+      console.log('Successfully synced 6 official programs in database.');
     }
 
     // 5. Seed Testimonials
