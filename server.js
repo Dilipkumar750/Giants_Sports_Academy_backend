@@ -16,6 +16,7 @@ const journalRoutes = require('./routes/journalRoutes');
 const leadershipRoutes = require('./routes/leadershipRoutes');
 const programRoutes = require('./routes/programRoutes');
 const testimonialRoutes = require('./routes/testimonialRoutes');
+const galleryRoutes = require('./routes/galleryRoutes');
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
@@ -23,6 +24,7 @@ app.use('/api/journals', journalRoutes);
 app.use('/api/leadership', leadershipRoutes);
 app.use('/api/programs', programRoutes);
 app.use('/api/testimonials', testimonialRoutes);
+app.use('/api/gallery', galleryRoutes);
 
 // Health Check
 app.get('/health', (req, res) => {
