@@ -8,6 +8,9 @@ router.get('/', galleryController.getAllGalleryItems);
 // POST a new gallery item
 router.post('/', galleryController.createGalleryItem);
 
+// PUT to reorder gallery items
+router.put('/reorder', galleryController.reorderGalleryItems);
+
 // DELETE a gallery item
 router.delete('/:id', galleryController.deleteGalleryItem);
 

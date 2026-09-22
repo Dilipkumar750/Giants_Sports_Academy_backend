@@ -3,7 +3,7 @@ const Gallery = require('../models/Gallery');
 // Get all gallery items
 exports.getAllGalleryItems = async (req, res) => {
   try {
-    const items = await Gallery.find().sort({ createdAt: -1 });
+    const items = await Gallery.find().sort({ order: 1, createdAt: -1 });
     res.json(items);
   } catch (error) {
     console.error('Error fetching gallery items:', error);
@@ -14,13 +14,13 @@ exports.getAllGalleryItems = async (req, res) => {
 // Create a gallery item
 exports.createGalleryItem = async (req, res) => {
   try {
-    const { title, image } = req.body;
+    const { image } = req.body;
     
-    if (!title || !image) {
-      return res.status(400).json({ error: 'Title and image are required' });
+    if (!image) {
+      return res.status(400).json({ error: 'Image is required' });
     }
     
-    const newItem = new Gallery({ title, image });
+    const newItem = new Gallery({ image });
     await newItem.save();
     
     res.status(201).json(newItem);
@@ -45,5 +45,27 @@ exports.deleteGalleryItem = async (req, res) => {
   } catch (error) {
     console.error('Error deleting gallery item:', error);
     res.status(500).json({ error: 'Server error deleting gallery item' });
+  }
+};
+
+// Reorder gallery items
+exports.reorderGalleryItems = async (req, res) => {
+  try {
+    const { items } = req.body;
+    
+    if (!Array.isArray(items)) {
+      return res.status(400).json({ error: 'Items array is required' });
+    }
+    
+    const updatePromises = items.map(item => 
+      Gallery.findByIdAndUpdate(item._id, { order: item.order })
+    );
+    
+    await Promise.all(updatePromises);
+    
+    res.json({ message: 'Gallery items reordered successfully' });
+  } catch (error) {
+    console.error('Error reordering gallery items:', error);
+    res.status(500).json({ error: 'Server error reordering gallery items' });
   }
 };
